@@ -1,8 +1,8 @@
 import { DeleteIcon } from "../../Icons/DeleteIcon"
 import { DocumentIcon } from "../../Icons/DocumentIcon"
 import { ShareIcon } from "../../Icons/shareIcon"
-import { VideoIcon } from "../../Icons/VideoIcon"
-import { XIcon } from "../../Icons/XIcon"
+// import { VideoIcon } from "../../Icons/VideoIcon"
+// import { XIcon } from "../../Icons/XIcon"
 import { getYouTubeVideoId } from "../../utils/getYoutubeVideoId"
 
 interface CardProps {
@@ -11,29 +11,29 @@ interface CardProps {
   type: "document" | "youtube" | "tweet",
 }
 
-const iconSizeVarient = {
-  "sm": "size-2",
-  "md": "size-4",
-  "lg": "size-6",
-}
+// const iconSizeVarient = {
+//   "sm": "size-2",
+//   "md": "size-4",
+//   "lg": "size-6",
+// }
 
 
-const linkType = {
-  "document": <DocumentIcon size={"sm"} />,
-  "youtube": <VideoIcon size={"sm"} />,
-  "tweet": <XIcon size={"sm"} />
+// const linkType = {
+//   "document": <DocumentIcon size={"sm"} />,
+//   "youtube": <VideoIcon size={"sm"} />,
+//   "tweet": <XIcon size={"sm"} />
 
-}
+// }
 
 
-const cardDefaultStyles = "shadow-xl max-w-xs bg-white p-3 rounded-md border border-gray-300"
+const cardDefaultStyles = "shadow-xl max-w-xs bg-white p-3 rounded-md border border-gray-300 h-[320px] flex flex-col"
 
 export const Card = (props: CardProps) => {
   return (
     <div className={cardDefaultStyles}>
-      <div className="flex justify-between p-2">
+      <div className="flex justify-between p-2 ">
         <div className="flex items-center gap-4 text-gray-600">
-          <DocumentIcon size={"md"} />
+          <DocumentIcon size={"md"} /> 
           <h1 className="text-2xl font-[640] text-black">{props.title}</h1>
         </div>
         <div className="flex items-center justify-end gap-4 text-gray-600">
@@ -43,8 +43,8 @@ export const Card = (props: CardProps) => {
       </div>
 
 
-      <div>
-        {props.type === "youtube" && <iframe className="w-full rounded-xl"
+      <div className="flex-1 overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        {props.type === "youtube" && <iframe className="w-full aspect-video rounded-xl"
           src={`https://www.youtube.com/embed/${getYouTubeVideoId(props.link)}`}
           title="YouTube video player" frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
