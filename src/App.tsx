@@ -12,7 +12,8 @@ function App() {
     <Button varient='primary' text='Add Content' size="md" startIcon={<PlusIcon size={"md"}/>}/>
     </div>
 
-    <Card />
+    <Card type={"youtube"} link="https://www.youtube.com/live/fN4102tAwFo?si=797f4v2R917P7D1L" title='xyz'/>
+    <Card type={"tweet"} link="https://x.com/elonmusk/status/2003894829424824683?s=20" title='xyz'/>
   </div>
 }
 

@@ -3,7 +3,7 @@ import { DocumentIcon } from "../../Icons/DocumentIcon"
 import { ShareIcon } from "../../Icons/shareIcon"
 import { VideoIcon } from "../../Icons/VideoIcon"
 import { XIcon } from "../../Icons/XIcon"
-
+import { getYouTubeVideoId } from "../../utils/getYoutubeVideoId"
 
 interface CardProps {
   title: string,
@@ -26,12 +26,9 @@ const linkType = {
 }
 
 
-
-
-
 const cardDefaultStyles = "shadow-xl max-w-xs bg-white p-3 rounded-md border border-gray-300"
 
-export const Card = (props : CardProps) => {
+export const Card = (props: CardProps) => {
   return (
     <div className={cardDefaultStyles}>
       <div className="flex justify-between p-2">
@@ -46,30 +43,24 @@ export const Card = (props : CardProps) => {
       </div>
 
 
-
-      {/* <iframe className="w-full rounded-xl" src="https://www.youtube.com/embed/V_3wtXybR9I?si=JKddrRme6ED_dhKF" 
-      title="YouTube video player" frameBorder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
-      </iframe> */}
-
-      {/* <blockquote className="twitter-tweet">
-          <p lang="en" dir="ltr">day 1 as a spy in 
-            <a href="https://twitter.com/100xSchool?ref_src=twsrc%5Etfw">@100xSchool</a> 
-            <a href="https://t.co/rpo1uBiiFM">pic.twitter.com/rpo1uBiiFM</a>
-            </p>
-            &mdash; Ashish Mohapatra (@ssh_ashish) 
-            <a href="https://twitter.com/ssh_ashish/status/2004128314613772454?ref_src=twsrc%5Etfw">
-            December 25, 2025
-            </a>
-            </blockquote> 
-        <script async src="https://platform.twitter.com/widgets.js" charSet="utf-8"></script> */}
+      <div>
+        {props.type === "youtube" && <iframe className="w-full rounded-xl"
+          src={`https://www.youtube.com/embed/${getYouTubeVideoId(props.link)}`}
+          title="YouTube video player" frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
+        </iframe>}
 
 
-      <blockquote className="twitter-tweet">
-        <a href={props.link}></a>
-      </blockquote>
+        {props.type === "tweet" && <blockquote className="twitter-tweet w-full rounded-xl">
+          <a href={props.link.replace("x.com", "twitter.com")}></a>
+        </blockquote>}
 
+
+          {/* its not working, i don't know why */}
+        {/* {props.type === "document" && <iframe src="https://awesome-bus-ce4.notion.site/ebd//2d44d4de638f81969bd6e778dbd2a85f"
+          className="h-64 w-full rounded-xl" height="600" frameBorder="0" allowFullScreen />} */}
+      </div>
 
     </div>
   )
