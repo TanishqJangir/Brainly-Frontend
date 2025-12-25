@@ -3,10 +3,16 @@ import { Button } from './Components/Ui/Button'
 import { PlusIcon } from './Icons/PlusIcon'
 import { ShareIcon } from './Icons/shareIcon'
 import { Card } from './Components/Ui/Card'
+import { CreateContentModal } from './Components/Ui/CreateModal'
 
 function App() {
 
   return <div className='p-6 bg-body h-screen'>
+
+
+
+    <CreateContentModal open={true} onClose={true}/>
+
     <div className='flex justify-end mb-6 gap-3'>
       <Button varient='secondary' text='Share Brain' size="md" startIcon={<ShareIcon size={"md"} />} />
       <Button varient='primary' text='Add Content' size="md" startIcon={<PlusIcon size={"md"} />} />

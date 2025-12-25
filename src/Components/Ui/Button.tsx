@@ -17,7 +17,7 @@ const varientStyles = {
     "secondary" : "bg-secondary text-Secondary-buttonText cursor-pointer"
 }
 
-const defaultStyles = "rounded flex gap-2 items-center";
+const defaultStyles = "rounded flex gap-2 items-center justify-center";
 
 const sizeStyles = {
     "sm" : "px-2 py-1",
