@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+
+    /* -----Colors for the button----- */
+    --color-primary : #5046e4;
+    --color-primary-hover: #4338ca;
+    --color-secondary : #e0e7fe;
+    --color-Secondary-buttonText : #3e38a7;
+
+
+    /* -----Colors for the sidebar----- */
+    --color-sidebar-text : #686f77;
+    
+    
+
+    /* -----Colors of the Card Component----- */
+    --color-card-date : #8b8c93;
+
+
+    /* -----Color of the Body ----- */
+    --color-body : #f9fbfc;
+}

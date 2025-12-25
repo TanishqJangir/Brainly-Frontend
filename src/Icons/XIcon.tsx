@@ -1,0 +1,9 @@
+import type { IconProps } from "./iconsInterface";
+import { iconSizeVarients } from "./iconsInterface";
+
+export const XIcon = (props : IconProps) => {
+    return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={iconSizeVarients[props.size]}>
+  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.664l-5.213-6.817L4.99 21.75H1.68l7.73-8.835L1.25 2.25h6.832l4.713 6.231 5.449-6.231Zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77Z"/>
+</svg>
+
+}
