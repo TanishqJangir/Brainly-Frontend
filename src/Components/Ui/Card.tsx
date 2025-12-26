@@ -44,7 +44,7 @@ export const Card = (props: CardProps) => {
 
 
       <div className="flex-1 overflow-y-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {props.type === "youtube" && <iframe className="w-full aspect-video rounded-xl"
+        {props.type === "youtube" && <iframe className="max-w-full aspect-video rounded-xl"
           src={`https://www.youtube.com/embed/${getYouTubeVideoId(props.link)}`}
           title="YouTube video player" frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

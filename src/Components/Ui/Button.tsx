@@ -29,7 +29,7 @@ const sizeStyles = {
 export const Button = (props : ButtonProps) => {
     return <button
         className= {`${varientStyles[props.varient]} ${defaultStyles} ${sizeStyles[props.size]}`}
-        
+        onClick={props.onClick}
     >{props.startIcon} {props.text} {props.endIcon} </button>
 }
 
