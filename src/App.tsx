@@ -18,7 +18,7 @@ function App() {
 
 
 
-      <div className='p-6 bg-body ml-72'>
+      <div className='p-6 bg-body ml-72 h-screen'>
 
         <CreateContentModal open={modalOpen} onClose={() => setModalOpen(prev => !prev)} />
         <div className='flex justify-end mb-6 gap-3'>
