@@ -8,8 +8,8 @@ interface SidebarItemsProps{
 
 
 export const SidebarItems = (props : SidebarItemsProps) => {
-    return <div className="flex">
+    return <div className="flex items-center gap-3 pl-6 ">
         {props.icon}
-        <div>{props.text}</div>
+        <div className="text-xl font-medium">{props.text}</div>
     </div>
 }   
