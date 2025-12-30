@@ -1,39 +1,11 @@
-import './App.css'
-import { Button } from './Components/Ui/Button'
-import { PlusIcon } from './Icons/PlusIcon'
-import { ShareIcon } from './Icons/shareIcon'
-import { Card } from './Components/Ui/Card'
-import { CreateContentModal } from './Components/Ui/CreateModal'
-import { useState } from 'react'
-import { Sidebar } from './Components/Ui/Sidebar'
+import {Dashboard} from "./Pages/dashboard"
 
 function App() {
 
-  const [modalOpen, setModalOpen] = useState(false);
 
-  return <div className=' h-screen'>
-
-    <div>
-      <Sidebar />
-
-
-
-      <div className='p-6 bg-body ml-72 h-screen'>
-
-        <CreateContentModal open={modalOpen} onClose={() => setModalOpen(prev => !prev)} />
-        <div className='flex justify-end mb-6 gap-3'>
-          <Button varient='secondary' text='Share Brain' size="md" startIcon={<ShareIcon size={"md"} />} />
-          <Button varient='primary' text='Add Content' size="md" startIcon={<PlusIcon size={"md"} />} onClick={() => setModalOpen(true)} />
-        </div>
-
-
-        <div className='grid grid-cols-4 gap-8 items-start'>
-          <Card type={"tweet"} link="https://x.com/elonmusk/status/2003894829424824683?s=20" title='Kya babua' />
-          <Card type={"youtube"} link="https://www.youtube.com/live/fN4102tAwFo?si=797f4v2R917P7D1L" title='Xyz' />
-        </div>
-      </div>
-    </div>
-  </div>
+  return <>
+    <Dashboard />
+  </>
 }
 
 export default App
