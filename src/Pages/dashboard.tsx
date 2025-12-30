@@ -6,14 +6,15 @@ import { Card } from '../Components/Ui/Card'
 import { CreateContentModal } from '../Components/Ui/CreateModal'
 import { useState } from 'react'
 import { Sidebar } from '../Components/Ui/Sidebar'
+import { Signup } from "./signup"
 
 export const Dashboard = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
 
   return <div className=' h-screen'>
-
-    <div>
+    <Signup />
+    {/* <div>
       <Sidebar />
 
 
@@ -32,6 +33,6 @@ export const Dashboard = () => {
           <Card type={"youtube"} link="https://www.youtube.com/live/fN4102tAwFo?si=797f4v2R917P7D1L" title='Xyz' />
         </div>
       </div>
-    </div>
+    </div> */}
   </div>
 }
