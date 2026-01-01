@@ -10,6 +10,7 @@ interface ButtonProps{
     startIcon ?: ReactElement,
     endIcon ?: ReactElement,
     onClick ?: () => void,
+    loading ?: boolean
 }
 
 const varientStyles = {
@@ -28,7 +29,7 @@ const sizeStyles = {
 
 export const Button = (props : ButtonProps) => {
     return <button
-        className= {`${varientStyles[props.varient]} ${defaultStyles} ${sizeStyles[props.size]}`}
+        className= {`${varientStyles[props.varient]} ${defaultStyles} ${sizeStyles[props.size]} ${props.loading ? "text-3xl" : "text-2xl"}`}
         onClick={props.onClick}
     >{props.startIcon} {props.text} {props.endIcon} </button>
 }

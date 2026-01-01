@@ -1,7 +1,7 @@
 interface InputProps{
-    type : "text" | "number" | "email" | "color",
+    type : "text" | "number" | "email" | "color" | "password",
     placeholder : string,
-    className : string,
+    className ?: string,
     onChange : () => void
 }
 
