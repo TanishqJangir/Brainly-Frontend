@@ -1,4 +1,5 @@
 import type { ReactElement } from "react";
+import { Loader } from "./Loader";
 
 
 type varients = "primary" | "secondary";
@@ -29,8 +30,8 @@ const sizeStyles = {
 
 export const Button = (props : ButtonProps) => {
     return <button
-        className= {`${varientStyles[props.varient]} ${defaultStyles} ${sizeStyles[props.size]} ${props.loading ? "text-3xl" : "text-2xl"}`}
+        className= {`${varientStyles[props.varient]} ${defaultStyles} ${sizeStyles[props.size]} `}
         onClick={props.onClick}
-    >{props.startIcon} {props.text} {props.endIcon} </button>
+    >{props.startIcon} {props.loading ? <Loader /> : props.text} {props.endIcon} </button>
 }
 
