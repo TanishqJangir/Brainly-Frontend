@@ -23,13 +23,13 @@ export const Signin = () => {
         
         <div className="bg-white rounded-xl min-w-48 flex flex-col gap-3 p-8 shadow-2xl">
             <div className="flex justify-center font-medium text-xl text-primary">Signin</div>
-            <Input type="text" placeholder="Enter Username" onChange={() => console.log("Username signup input")} className="border rounded" />
-            <Input type={"password"} placeholder="Enter Password" onChange={() => console.log("Password signup input")} className="border rounded" />
+            <Input type="text" placeholder="Enter Username"  className="border rounded" />
+            <Input type={"password"} placeholder="Enter Password"  className="border rounded" />
 
 
             <Button varient="primary" size="md" text="Signin" loading={loading} onClick={handleSignup}/>
 
-            <div className="text-gray-400 text-xs">Register a new user : <a href="http://www.localhost:5173/signup" className="text-primary underline">Signup</a></div>
+            <div className="text-gray-400 text-xs">Register a new user : <a href="http://localhost:5173/signup" className="text-primary underline">Signup</a></div>
         </div>
 
     </div>
