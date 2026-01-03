@@ -11,7 +11,8 @@ interface ButtonProps{
     startIcon ?: ReactElement,
     endIcon ?: ReactElement,
     onClick ?: () => void,
-    loading ?: boolean
+    loading ?: boolean,
+    className ?: string
 }
 
 const varientStyles = {
@@ -19,7 +20,7 @@ const varientStyles = {
     "secondary" : "bg-secondary text-Secondary-buttonText cursor-pointer"
 }
 
-const defaultStyles = "rounded flex gap-2 items-center justify-center";
+const defaultStyles = "rounded flex gap-2 items-center justify-center select-none";
 
 const sizeStyles = {
     "sm" : "px-2 py-1",
@@ -30,7 +31,7 @@ const sizeStyles = {
 
 export const Button = (props : ButtonProps) => {
     return <button
-        className= {`${varientStyles[props.varient]} ${defaultStyles} ${sizeStyles[props.size]} `}
+        className= {`${varientStyles[props.varient]} ${defaultStyles} ${sizeStyles[props.size]} ${props.className}`}
         onClick={props.onClick}
     >{props.startIcon} {props.loading ? <Loader /> : props.text} {props.endIcon} </button>
 }
