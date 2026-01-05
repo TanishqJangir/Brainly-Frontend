@@ -1,6 +1,7 @@
 import { CrossIcon } from "../../Icons/CrossIcon";
 import { Button } from "./Button";
 import { Input } from "./InputBox";
+import { useRef } from "react";
 
 interface ModalProps{
   open : boolean,
@@ -8,6 +9,23 @@ interface ModalProps{
 }
 
 export function CreateContentModal( props: ModalProps ) {
+
+  const titleRef = useRef<HTMLInputElement>(null);
+  const linkRef = useRef<HTMLInputElement>(null);
+
+  function addContent(){
+
+  }
+
+
+
+
+
+
+
+
+
+
   if (!props.open) return null;
   return (
     <div>
@@ -21,9 +39,10 @@ export function CreateContentModal( props: ModalProps ) {
           </div>
 
           <div className="flex flex-col gap-4 mt-2">
-            <Input type={"text"} placeholder="Enter the Title" className="border rounded-md pl-2 text-md focus:border-white" onChange={() => console.log("Hello")} />
-            <Input type={"text"} placeholder="Enter the Link" className="border rounded-md pl-2 text-md" onChange={() => console.log("Hello2")} />
-            <Button varient="primary" size="md" text="Submit" />
+            <Input type={"text"} reference={titleRef} placeholder="Enter the Title" className="border rounded-md pl-2 text-md focus:border-white" />
+            <Input type={"text"} reference={linkRef} placeholder="Enter the Link" className="border rounded-md pl-2 text-md" />
+            
+            <Button varient="primary" size="md" text="Submit" onClick={addContent}/>
           </div>
         </div>
 
