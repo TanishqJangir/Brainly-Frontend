@@ -6,12 +6,13 @@ import { Card } from '../Components/Ui/Card'
 import { CreateContentModal } from '../Components/Ui/CreateModal'
 import { useState } from 'react'
 import { Sidebar } from '../Components/Ui/Sidebar'
-import { useContent } from "../hooks/useContent"
+import { useContent, type contentType } from "../hooks/useContent"
+import { Loader } from "../Components/Ui/Loader"
 
 export const Dashboard = () => {
 
-  const [modalOpen, setModalOpen] = useState(false);
-  const contents = useContent();
+  const [ modalOpen, setModalOpen ] = useState(false);
+  const { contents, loading } = useContent();
 
   return <div className=' h-screen'>
     <div>
@@ -29,9 +30,10 @@ export const Dashboard = () => {
 
 
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-          
-          
-          
+          {loading && <Loader/>}
+          {contents.map(({ type, link, title }: contentType) => <Card key={link} type={type} title={title} link={link} />)}
+
+
         </div>
       </div>
     </div>

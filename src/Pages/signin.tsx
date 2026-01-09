@@ -37,6 +37,11 @@ export const Signin = () => {
             });
 
             const jwt = response.data.token;
+
+            if(!jwt){
+                throw new Error("Token missing from response");
+            }
+
             localStorage.setItem("token", jwt)
 
 
@@ -68,11 +73,21 @@ export const Signin = () => {
 
             {/* Input boxes of usename and password */}
             <Input type={"text"} reference={usernameRef} placeholder="Enter Username"  className="border rounded" />
-            <Input type={showPassword ? "text" : "password"} reference={passwordRef} placeholder="Enter Password"  className="border rounded" />
+            <div className="relative">
+                <Input
+                    type={showPassword ? "text" : "password"}
+                    reference={passwordRef}
+                    placeholder="Enter Password"
+                    className="border rounded pr-10"
+                />
 
-            {/* Eye Icon */}
-            <div className="absolute right-167 top-92 select-none">
-            {showPassword ? (<EyeSlashIcon size="xl" onClick={() => setShowPassword(prev => !prev)}/>) : (<EyeIcon size="xl" onClick={() => setShowPassword(prev => !prev)} />)}
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none" onClick={() => setShowPassword(prev => !prev)}>
+                    {showPassword ? (
+                        <EyeSlashIcon size="md" />
+                    ) : (
+                        <EyeIcon size="md" />
+                    )}
+                </div>
             </div>
 
             {/* Submit button */}

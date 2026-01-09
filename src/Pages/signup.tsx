@@ -38,7 +38,7 @@ export const Signup = () => {
             });
 
             alert("Signup successful");
-            navigate("/dashboard");
+            navigate("/signin");
         } catch (error: any) {
             console.log("FULL ERROR:", error);
 
@@ -61,10 +61,23 @@ export const Signup = () => {
         <div className="bg-white rounded-xl min-w-48 flex flex-col gap-3 p-8 shadow-2xl">
             <div className="flex justify-center font-medium text-xl text-primary select-none">Signup</div>
             <Input type="text" reference={usernameRef} placeholder="Enter Username" className="border rounded" />
-            <Input type={showPassword ? "text" : "password"} reference={passwordRef} placeholder="Enter Password" className="border rounded" />
-            <div className="absolute right-167 top-92 select-none">
-                {showPassword ? (<EyeSlashIcon size="xl" onClick={() => setShowPassword(prev => !prev)} />) : (<EyeIcon size="xl" onClick={() => setShowPassword(prev => !prev)} />)}
+            <div className="relative">
+                <Input
+                    type={showPassword ? "text" : "password"}
+                    reference={passwordRef}
+                    placeholder="Enter Password"
+                    className="border rounded pr-10"
+                />
+
+                <div className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer select-none" onClick={() => setShowPassword(prev => !prev)}>
+                    {showPassword ? (
+                        <EyeSlashIcon size="md" />
+                    ) : (
+                        <EyeIcon size="md" />
+                    )}
+                </div>
             </div>
+
 
 
             <Button varient="primary" size="md" text="Signup" loading={loading} onClick={signup} />
