@@ -6,8 +6,9 @@ import { useRef, useState } from "react";
 import { Backend_URL } from "../../utils/config";
 
 interface ModalProps {
-  open: boolean,
-  onClose: () => void
+  open: boolean;
+  onClose: () => void;
+  onContentAdded : () => void;
 }
 
 const contentType = {
@@ -52,6 +53,7 @@ export function CreateContentModal(props: ModalProps) {
       })
 
       setLoading(false);
+      props.onContentAdded();
       props.onClose();
 
     } catch (error: unknown) {

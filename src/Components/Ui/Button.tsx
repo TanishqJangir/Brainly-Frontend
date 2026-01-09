@@ -6,7 +6,7 @@ type varients = "primary" | "secondary";
 
 interface ButtonProps{
     varient : varients,
-    size : "sm" | "md" | "lg";
+    size : "xs" | "sm" | "md" | "lg";
     text : string,
     startIcon ?: ReactElement,
     endIcon ?: ReactElement,
@@ -23,6 +23,7 @@ const varientStyles = {
 const defaultStyles = "rounded flex gap-2 items-center justify-center select-none";
 
 const sizeStyles = {
+    "xs" : "px-1",
     "sm" : "px-2 py-1",
     "md" : "px-4 py-2",
     "lg" : "px-6 py-3"
@@ -33,6 +34,6 @@ export const Button = (props : ButtonProps) => {
     return <button
         className= {`${varientStyles[props.varient]} ${defaultStyles} ${sizeStyles[props.size]} ${props.className}`}
         onClick={props.onClick}
-    >{props.startIcon} {props.loading ? <Loader /> : props.text} {props.endIcon} </button>
+    >{props.startIcon} {props.loading ? <Loader color={"white"}/> : props.text} {props.endIcon} </button>
 }
 

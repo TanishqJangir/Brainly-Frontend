@@ -12,7 +12,7 @@ import { Loader } from "../Components/Ui/Loader"
 export const Dashboard = () => {
 
   const [ modalOpen, setModalOpen ] = useState(false);
-  const { contents, loading } = useContent();
+  const { contents, loading, refetch } = useContent();
 
   return <div className=' h-screen'>
     <div>
@@ -22,7 +22,7 @@ export const Dashboard = () => {
 
       <div className='p-6 bg-body ml-72 h-screen'>
 
-        <CreateContentModal open={modalOpen} onClose={() => setModalOpen(prev => !prev)} />
+        <CreateContentModal open={modalOpen} onClose={() => setModalOpen(prev => !prev)}  onContentAdded={refetch}/>
         <div className='flex justify-end mb-6 gap-3'>
           <Button varient='secondary' text='Share Brain' size="md" startIcon={<ShareIcon size={"md"} />} />
           <Button varient='primary' text='Add Content' size="md" startIcon={<PlusIcon size={"md"} />} onClick={() => setModalOpen(true)} />
@@ -30,8 +30,8 @@ export const Dashboard = () => {
 
 
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-          {loading && <Loader/>}
-          {contents.map(({ type, link, title }: contentType) => <Card key={link} type={type} title={title} link={link} />)}
+          {loading && <Loader color={"black"}/>}
+          {contents.map(({ type, link, title, body }: contentType) => <Card key={link} type={type} title={title} link={link} body={body}/>)}
 
 
         </div>
