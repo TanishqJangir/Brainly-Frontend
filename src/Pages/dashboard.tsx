@@ -6,10 +6,12 @@ import { Card } from '../Components/Ui/Card'
 import { CreateContentModal } from '../Components/Ui/CreateModal'
 import { useState } from 'react'
 import { Sidebar } from '../Components/Ui/Sidebar'
+import { useContent } from "../hooks/useContent"
 
 export const Dashboard = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
+  const contents = useContent();
 
   return <div className=' h-screen'>
     <div>
@@ -26,9 +28,10 @@ export const Dashboard = () => {
         </div>
 
 
-        <div className='grid grid-cols-4 gap-8 items-start'>
-          <Card type={"tweet"} link="https://x.com/elonmusk/status/2003894829424824683?s=20" title='Kya babua' />
-          <Card type={"youtube"} link="https://www.youtube.com/live/fN4102tAwFo?si=797f4v2R917P7D1L" title='Xyz' />
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+          
+          
+          
         </div>
       </div>
     </div>
